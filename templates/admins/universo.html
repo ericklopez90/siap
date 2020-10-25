@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block title %}Busqueda del Personal{% endblock title %}
+
+{% block content %}
+
+    {% for u in universo %}
+        <ul><li>{{u}}</li></ul>
+    {% endfor %}
+
+{% endblock %}

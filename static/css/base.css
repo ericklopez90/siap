@@ -1,0 +1,47 @@
+
+.siap{
+    font-size: 25px;
+}
+
+.colorbarra{
+    background-color: #4A4A4A;
+}
+
+
+.colorbarra2{
+    background-color: #636363;
+}
+
+
+.letraparabarra{
+    color: #fff;
+    font-style: oblique;
+}
+
+.footerio {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 7px;
+ }
+
+ .chart-pie2 {
+    position: relative;
+    height: 8rem;
+    width: 100%;
+}
+
+
+.padding{
+    padding: .75rem 3.25rem -1.00rem 1.25rem;
+}
+
+.card-collapse{
+    margin-bottom: 0;
+    background-color: #f8f9fc;
+    border-color: #f8f9fc;
+    color: #7D9AD4;
+    border-width: 0px;
+    border-style: outset;
+}
