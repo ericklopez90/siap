@@ -28,10 +28,15 @@
 
  .chart-pie2 {
     position: relative;
-    height: 8rem;
+    height: 20rem;
     width: 100%;
 }
 
+.chart-pie3 {
+    position: relative;
+    height: 10rem;
+    width: 100%;
+}
 
 .padding{
     padding: .75rem 3.25rem -1.00rem 1.25rem;

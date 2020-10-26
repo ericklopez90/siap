@@ -5,9 +5,9 @@ from django.views.generic import (
     View,
     UpdateView,
     DeleteView,
-    DeleteView,
     ListView,
-    TemplateView
+    TemplateView,
+    CreateView
 )
 from django.views.generic.edit import (
     FormView
@@ -36,6 +36,8 @@ from .forms import (
     TurnoForm,
     DiasForm
 )
+
+from .functions import registrar_nuevo_uni
 # Create your views here.
 
 
@@ -64,3 +66,19 @@ class UniversoListView(ListView):
     template_name = 'admins/universo.html'
     model = Universo
     context_object_name = 'universo'
+    paginate_by = 10
+
+class UniversoCreateview(FormView):
+    template_name = 'admins/form_universo.html'
+    form_class = UniversoForm
+    success_url = reverse_lazy('admins_app:universo')
+
+
+    def form_valid(self, form):
+        nombre = form.cleaned_data['nombre']
+        user = self.request.user
+        obj, created = Universo.objects.get_or_create(
+            nombre = nombre,
+            user = user
+        )
+        return super(UniversoCreateview, self).form_valid(form)

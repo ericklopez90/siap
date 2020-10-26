@@ -1,9 +1,12 @@
 from model_utils.models import TimeStampedModel
 from django.db import models
+from django.contrib.auth.models import User
+
 
 # Create your models here.
 class Dias(TimeStampedModel):
     nombre = models.CharField('Dias Laborales', max_length=25)
+    user = models.ForeignKey(User, on_delete=models.PROTECT)
 
     class Meta:
         verbose_name = 'Dia Laboral'
@@ -16,6 +19,7 @@ class Dias(TimeStampedModel):
 
 class CodigoPuesto(TimeStampedModel):
     nombre = models.CharField('Codigo de Puesto', max_length=25)
+    user = models.ForeignKey(User, on_delete=models.PROTECT)
 
     class Meta:
         verbose_name = 'Codigo de Puesto'
@@ -28,6 +32,7 @@ class CodigoPuesto(TimeStampedModel):
 
 class NivelSalarial(TimeStampedModel):
     nivel = models.IntegerField('Nivel Salarial',)
+    user = models.ForeignKey(User, on_delete=models.PROTECT)
 
     class Meta:
         verbose_name = 'Nivel Salarial'
@@ -41,6 +46,7 @@ class NivelSalarial(TimeStampedModel):
 class Prestaciones(TimeStampedModel):
     nombre = models.CharField('Prestanción', max_length=35)
     num_dias = models.IntegerField('Dias',)
+    user = models.ForeignKey(User, on_delete=models.PROTECT)
 
     class Meta:
         verbose_name = 'Prestacion'
@@ -54,6 +60,7 @@ class Prestaciones(TimeStampedModel):
 class SeccionSindical(TimeStampedModel):
     nombre = models.CharField('Prestanción', max_length=35)
     seccion = models.IntegerField('Dias',)
+    user = models.ForeignKey(User, on_delete=models.PROTECT)
 
     class Meta:
         verbose_name = 'Seccion Sindical'
@@ -66,6 +73,7 @@ class SeccionSindical(TimeStampedModel):
 
 class Universo(TimeStampedModel):
     nombre = models.CharField('Universo', max_length=10)
+    user = models.ForeignKey(User, on_delete=models.PROTECT)
 
     class Meta:
         verbose_name = 'Universo'
@@ -78,6 +86,7 @@ class Universo(TimeStampedModel):
 
 class ZonaPagadora(TimeStampedModel):
     nombre = models.CharField('Universo', max_length=10)
+    user = models.ForeignKey(User, on_delete=models.PROTECT)
 
     class Meta:
         verbose_name = 'Zona Pagadora'
@@ -90,6 +99,7 @@ class ZonaPagadora(TimeStampedModel):
 
 class TipoContratacion(TimeStampedModel):
     nombre = models.CharField('Tipo de contratación', max_length=100)
+    user = models.ForeignKey(User, on_delete=models.PROTECT)
 
     class Meta:
         verbose_name = 'Tipo de Contratación'
@@ -103,6 +113,7 @@ class TipoContratacion(TimeStampedModel):
 class Turno(TimeStampedModel):
     nombre = models.CharField('Turno', max_length=15)
     dia_trab = models.ManyToManyField(Dias)
+    user = models.ForeignKey(User, on_delete=models.PROTECT)
 
     class Meta:
         verbose_name = 'Turno'

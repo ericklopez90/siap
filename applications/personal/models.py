@@ -26,6 +26,7 @@ class Personal(TimeStampedModel):
     faltas = models.ForeignKey(Faltas, on_delete=models.CASCADE, related_name='faltas_personal')
     tipo_contratacion = models.ForeignKey(TipoContratacion, on_delete=models.CASCADE)
     active = models.BooleanField('Activo', default=True)
+    user = models.ForeignKey(User, on_delete=models.PROTECT)
 
     class Meta:
         verbose_name = 'Personal'

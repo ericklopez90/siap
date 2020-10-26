@@ -16,7 +16,10 @@ from .models import (
 class UniversoForm(forms.ModelForm):
     class Meta:
         model = Universo
-        fields = ('__all__')
+        fields = (
+            'nombre',
+            'user'
+        )
         widgets = {
             'nombre': forms.TextInput(
                 attrs={
