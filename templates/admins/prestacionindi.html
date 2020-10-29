@@ -27,7 +27,7 @@
                     <a href="?order=user" class="btn btn-secondary btn-block btn-sm mt-1" role="button">Usuario</a>
                 </div>
                 <div class="col-sm-3">
-                    <a href="{% url 'admins_app:prestanuevo' %}" class="btn btn-success float-right mt-1" role="button">
+                    <a href="{% url 'admins_app:prestaindi-nuevo' %}" class="btn btn-success float-right mt-1" role="button">
                         <i class="fas fa-plus"></i>
                     </a>
                 </div>
@@ -38,19 +38,21 @@
                         <thead class="thead-dark">
                             <tr class="text-center">
                                 <th>Nombre</th>
+                                <th>Dias</th>
                                 <th>Ultima Modificación</th>
                                 <th>Modificado por</th>
                                 <th>Acción</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {% for p in prestaciones %}
+                            {% for p in prestacionindi %}
                             <tr class="text-center">
-                                <td>{{p.nombre}} - {{p.turno}}</td>
+                                <td>{{p.nombre}}</td>
+                                <td>{{p.num_dias}}</td>
                                 <td>{{p.modified}}</td>
                                 <td>{{p.user}}</td>
                                 <td>
-                                    <a href="{% url 'admins_app:presta-update' p.id %}" class="btn btn-dark btn-sm m-2"
+                                    <a href="{% url 'admins_app:prestaindi-update' p.id %}" class="btn btn-dark btn-sm m-2"
                                         role="button">
                                         <i class="fas fa-edit"></i>
                                     </a>

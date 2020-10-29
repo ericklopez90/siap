@@ -10,7 +10,8 @@ from .models import (
     CodigoPuesto,
     Turno,
     Dias,
-    Hospital
+    Hospital,
+    PrestacionIndi
 )
 
 #Forms
@@ -183,14 +184,13 @@ class TurnoForm(forms.ModelForm):
     }   
 
 
-class PrestacionesForm(forms.ModelForm):
+class PrestacionIndiForm(forms.ModelForm):
     class Meta:
-        model = Prestaciones
+        model = PrestacionIndi
         fields = (
             'nombre',
             'num_dias',
-            'activo',
-            'turno',
+            'activo'
         )
         widgets = {
         'nombre': forms.TextInput(
@@ -202,6 +202,25 @@ class PrestacionesForm(forms.ModelForm):
         'num_dias': forms.NumberInput(
             attrs={
                 'placeholder': 'Dias Correspondientes',
+                'class': 'form-control'
+            }
+        )
+    }
+
+
+class PrestacionesForm(forms.ModelForm):
+    class Meta:
+        model = Prestaciones
+        fields = (
+            'nombre',
+            'prestacion',
+            'activo',
+            'turno',
+        )
+        widgets = {
+        'nombre': forms.TextInput(
+            attrs={
+                'placeholder': 'Nombre',
                 'class': 'form-control'
             }
         )

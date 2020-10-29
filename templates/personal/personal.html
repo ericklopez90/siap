@@ -1,35 +1,35 @@
 {% extends 'base.html' %}
 {% load static%}
-{% block title %}Prestaciones{% endblock title %}
+{% block title %}Personal{% endblock title %}
 
 {% block content %}
 
 <div class="row">
     <div class="col-12">
-        <a href="{% url 'admins_app:catalogo' %}" class="btn btn-dark mt-1" role="button">
-            <i class="fas fa-chevron-left"></i></a>
-        <h3 class="my-3 font-weight-bold text-center text-secondary">Prestaciones</h3>
+        <h3 class="my-3 font-weight-bold text-center text-secondary">Personal</h3>
         <div class="card shadow mb-4 p-3">
             <div class="row px-3">
                 <div class="col-12">
                     <label for="">Filtra por</label>
                 </div>
             </div>
-            <div class="row px-3">
-                <div class="col-sm-3">
-                    <a href="?order=nombre" class="btn btn-secondary btn-block btn-sm  mt-1" role="button">Nombre</a>
+            <div class="row">
+                <div class="col-sm-6 px-4">
+                    <form method="GET">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="kword" name="kword"
+                                placeholder="Nombre o N° Empleado" aria-label="Recipient's username"
+                                aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="sumbit">Buscar</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <div class="col-sm-3">
-                    <a href="?order=modified" class="btn btn-secondary btn-block btn-sm mt-1" role="button">Fecha de
-                        Modificación</a>
-                </div>
-                <div class="col-sm-3">
-                    <a href="?order=user" class="btn btn-secondary btn-block btn-sm mt-1" role="button">Usuario</a>
-                </div>
-                <div class="col-sm-3">
-                    <a href="{% url 'admins_app:prestanuevo' %}" class="btn btn-success float-right mt-1" role="button">
-                        <i class="fas fa-plus"></i>
-                    </a>
+                <div class="col-sm-6 px-4">
+                    <a href="{% url 'personal_app:perso-nuevo' %}" class="btn btn-success float-right mt-1"
+                        role="button">
+                        <i class="fas fa-plus"></i></a>
                 </div>
             </div>
             <div class="py-2 px-3 mt-3">
@@ -37,6 +37,7 @@
                     <table class="table table-sm">
                         <thead class="thead-dark">
                             <tr class="text-center">
+                                <th>N° Empleado</th>
                                 <th>Nombre</th>
                                 <th>Ultima Modificación</th>
                                 <th>Modificado por</th>
@@ -44,13 +45,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for p in prestaciones %}
+                            {% for p in personal %}
                             <tr class="text-center">
-                                <td>{{p.nombre}} - {{p.turno}}</td>
+                                <td>{{p.num_empleado}}</td>
+                                <td>{{p.apellido_paterno}} {{p.apellido_materno}} {{p.nombre}}</td>
                                 <td>{{p.modified}}</td>
                                 <td>{{p.user}}</td>
                                 <td>
-                                    <a href="{% url 'admins_app:presta-update' p.id %}" class="btn btn-dark btn-sm m-2"
+                                    <a href="{% url 'personal_app:perso-update' p.id %}" class="btn btn-dark btn-sm m-2"
                                         role="button">
                                         <i class="fas fa-edit"></i>
                                     </a>

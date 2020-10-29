@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block title %}Personal{% endblock title %}
+
+{% block content %}
+
+<div class="row mt-2">
+  <a href="{% url 'personal_app:personal' %}" class="btn btn-dark mt-1" role="button">
+    <i class="fas fa-chevron-left"></i></a>
+  <div class="col-sm-4 offset-sm-4"></div>
+</div>
+<div class="row mt-2">
+  <div class="col-sm-10 offset-sm-1">
+    <div class="card shadow mb-4">
+      <div class="py-3 d-flex flex-row align-items-center justify-content-center">
+        {% if personal %}
+        <h6 class="m-0 font-weight-bold text-primary">Actualizar Personal</h6>
+        {% else %}
+        <h6 class="m-0 font-weight-bold text-primary">Registrar Nuevo Personal</h6>
+        {% endif %}
+      </div>
+      <div class="card-body">
+        <div class="chart-pie5  align-items-center justify-content-center">
+          <form method="POST">{% csrf_token %}
+            <div class="row py-2">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="">Nombre</label>
+                  {{form.nombre}}
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="">Apellido Paterno</label>
+                  {{form.apellido_paterno}}
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="">Apellido Materno</label>
+                  {{form.apellido_materno}}
+                </div>
+              </div>
+            </div>
+            <div class="row py-2">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="">Fecha de Nacimiento</label>
+                  {{form.fecha_nac}}
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="">C.U.R.P.</label>
+                  {{form.curp}}
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="">R.F.C.</label>
+                  {{form.rfc}}
+                </div>
+              </div>
+            </div>
+            <div class="row py-2">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="">N° de Empleado</label>
+                  {{form.num_empleado}}
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="">N° de Plaza</label>
+                  {{form.num_plaza}}
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="">Fecha de Ingreso</label>
+                  {{form.fecha_ingreso}}
+                </div>
+              </div>
+            </div>
+            <div class="row py-2">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="">Universo</label>
+                  {{form.universo}}
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="">Nivel Salarial</label>
+                  {{form.nivel}}
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="">Zona Pagadora</label>
+                  {{form.zona_pagadora}}
+                </div>
+              </div>
+            </div>
+            <div class="row py-2">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="">Codigo de Puesto</label>
+                  {{form.codigo_puesto}}
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="">Sección Sindical</label>
+                  {{form.secc_sindical}}
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="">Hospital</label>
+                  {{form.hospital}}
+                </div>
+              </div>
+            </div>
+            <div class="row py-2">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="">Turno</label>
+                  {{form.turno}}
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="">Prestaciones</label>
+                  {{form.prestaciones}}
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="">Tipo de Contratación</label>
+                  {{form.tipo_contratacion}}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="">Activo</label>
+                  {{form.activo}}
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  {{form.user}}
+                </div>
+              </div>
+              <div class="col-sm-4">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6 offset-sm-3">
+                {% if personal %}
+                <button type="submit" class="btn btn-secondary btn-lg btn-block">Actualizar</button>
+                {% else %}
+                <button type="submit" class="btn btn-secondary btn-lg btn-block">Crear</button>
+                {% endif %}
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

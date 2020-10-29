@@ -18,3 +18,6 @@ print(len(v))
 
 
 ?page=
+
+
+           "{% url 'personal_app:personal-detail' p.id %}"

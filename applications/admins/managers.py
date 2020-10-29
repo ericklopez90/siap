@@ -184,6 +184,27 @@ class TurnoManager(models.Manager):
             return consulta.order_by('-created')
 
 
+class PrestacionIndiManager(models.Manager):
+    """ procedimiento modelo product """
+
+    def buscar_prestacionindi(self, kword, order):
+        consulta = self.filter(
+            nombre__icontains=kword
+        )
+        # verificamos en que orden se solicita
+        if order == 'nombre':
+            # ordenar por fecha
+            return consulta.order_by('nombre')
+        elif order == 'modified':
+            # ordenar por nombre
+            return consulta.order_by('modified')
+        elif order == 'user':
+            return consulta.order_by('user')
+        else:
+            return consulta.order_by('-created')
+
+
+
 class PrestacionesManager(models.Manager):
     """ procedimiento modelo product """
 

@@ -44,6 +44,12 @@
     width: 100%;
 }
 
+.chart-pie5 {
+    position: relative;
+    height: 25rem;
+    width: 100%;
+}
+
 .padding{
     padding: .75rem 3.25rem -1.00rem 1.25rem;
 }

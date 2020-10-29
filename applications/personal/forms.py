@@ -32,15 +32,100 @@ class PersonalForm(forms.ModelForm):
         widgets = {
         'nombre': forms.TextInput(
             attrs={
-                'placeholder': 'Nombre',
                 'class': 'form-control'
-            }
+            },
+        ),
+        'apellido_paterno': forms.TextInput(
+            attrs={
+                'class': 'form-control'
+            },
+        ),
+        'apellido_materno': forms.TextInput(
+            attrs={
+                'class': 'form-control'
+            },
         ),
         'fecha_nac': forms.DateInput(
             format='%Y-%m-%d',
             attrs={
-                'type': 'Fecha',
-                'class': 'input-group-field',
+                'type': 'date',
+                'class': 'form-control',
             },
-        )
+        ),
+        'curp': forms.TextInput(
+            attrs={
+                'class': 'form-control'
+            },
+        ),
+        'rfc': forms.TextInput(
+            attrs={
+                'class': 'form-control'
+            },
+        ),
+        'num_empleado': forms.TextInput(
+            attrs={
+                'class': 'form-control'
+            },
+        ),
+        'num_plaza': forms.TextInput(
+            attrs={
+                'class': 'form-control'
+            },
+        ),
+        'fecha_ingreso': forms.DateInput(
+            format='%Y-%m-%d',
+            attrs={
+                'type': 'date',
+                'class': 'form-control'
+            },
+        ),
+        'universo': forms.Select(
+            attrs={
+                'class': 'form-control'
+            },
+        ),
+        'nivel': forms.Select(
+            attrs={
+                'class': 'form-control'
+            },
+        ),
+        'zona_pagadora': forms.Select(
+            attrs={
+                'class': 'form-control'
+            },
+        ),
+        'codigo_puesto': forms.Select(
+            attrs={
+                'class': 'form-control'
+            },
+        ),
+        'secc_sindical': forms.Select(
+            attrs={
+                'class': 'form-control'
+            },
+        ),
+        'hospital': forms.Select(
+            attrs={
+                'class': 'form-control'
+            },
+        ),
+        'turno': forms.Select(
+            attrs={
+                'class': 'form-control'
+            },
+        ),
+        'prestaciones': forms.Select(
+            attrs={
+                'class': 'form-control'
+            },
+        ),
+        'tipo_contratacion': forms.Select(
+            attrs={
+                'class': 'form-control'
+            },
+        ),
+        'activo': forms.CheckboxInput(
+            attrs={
+            },
+        ),
     }

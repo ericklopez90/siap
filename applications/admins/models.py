@@ -11,7 +11,8 @@ from .managers import (
     TipoContratacionManager,
     TurnoManager,
     DiasManager,
-    HospitalManager
+    HospitalManager,
+    PrestacionIndiManager
 )
 
 
@@ -78,7 +79,7 @@ class SeccionSindical(TimeStampedModel):
         ordering = ['seccion']
 
     def __str__(self):
-        return "sección{self.seccion} - {self.nombre}"
+        return str(self.seccion) + " - " + self.nombre
 
 
 class Universo(TimeStampedModel):
@@ -162,9 +163,26 @@ class Turno(TimeStampedModel):
     def __str__(self):
         return self.nombre
 
-class Prestaciones(TimeStampedModel):
+class PrestacionIndi(TimeStampedModel):
     nombre = models.CharField('Prestanción', max_length=35)
     num_dias = models.IntegerField('Dias',)
+    user = models.ForeignKey(User, on_delete=models.PROTECT)
+    activo = models.BooleanField(default=True)
+
+    objects = PrestacionIndiManager()
+
+    class Meta:
+        verbose_name = 'Prestacion Individual'
+        verbose_name_plural = 'Prestaciones Individuales'
+        ordering = ['id']
+
+    def __str__(self):
+        return self.nombre + " - " + str(self.num_dias)
+
+
+class Prestaciones(TimeStampedModel):
+    nombre = models.CharField('Prestanciónes', max_length=35)
+    prestacion = models.ManyToManyField(PrestacionIndi)
     turno = models.ForeignKey(Turno, on_delete=models.PROTECT)
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     activo = models.BooleanField(default=True)
@@ -177,4 +195,6 @@ class Prestaciones(TimeStampedModel):
         ordering = ['id']
 
     def __str__(self):
-        return self.nombre + " - " + str(self.turno)
+        return str(self.turno)
+
+

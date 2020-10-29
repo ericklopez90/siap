@@ -23,7 +23,8 @@ from .models import (
     CodigoPuesto,
     Turno,
     Dias,
-    Hospital
+    Hospital,
+    PrestacionIndi
 )
 
 from .forms import (
@@ -36,7 +37,8 @@ from .forms import (
     CodigoPuestoForm,
     TurnoForm,
     DiasForm,
-    HospitalForm
+    HospitalForm,
+    PrestacionIndiForm
 )
 
 from .functions import registrar_nuevo_uni
@@ -352,6 +354,42 @@ class TurnoCreateview(FormView):
         return super(TurnoCreateview, self).form_valid(form)
 
 
+class PrestacionIndiListView(ListView):
+    template_name = 'admins/prestacionindi.html'
+    context_object_name = 'prestacionindi'
+    paginate_by = 5
+
+    def get_queryset(self):
+        kword = self.request.GET.get("kword", '')
+        order = self.request.GET.get("order", '')
+        queryset = PrestacionIndi.objects.buscar_prestacionindi(kword, order)
+        return queryset
+
+
+class PrestacionIndiUpdateView(UpdateView):
+    template_name = 'admins/form_prestacionindi.html'
+    model = PrestacionIndi
+    form_class = PrestacionIndiForm
+    success_url = reverse_lazy('admins_app:prestacionindi')
+
+
+class PrestacionIndiCreateview(FormView):
+    template_name = 'admins/form_prestacionindi.html'
+    form_class = PrestacionIndiForm
+    success_url = reverse_lazy('admins_app:prestacionindi')
+
+    def form_valid(self, form):
+        nombre = form.cleaned_data['nombre']
+        num_dias = form.cleaned_data['num_dias']
+        user = self.request.user
+        obj, created = PrestacionIndi.objects.get_or_create(
+            nombre = nombre,
+            user = user,
+            num_dias = num_dias
+        )
+        return super(PrestacionIndiCreateview, self).form_valid(form)
+
+
 class PrestacionesListView(ListView):
     template_name = 'admins/prestaciones.html'
     context_object_name = 'prestaciones'
@@ -378,13 +416,13 @@ class PrestacionesCreateview(FormView):
 
     def form_valid(self, form):
         nombre = form.cleaned_data['nombre']
-        num_dias = form.cleaned_data['num_dias']
+        prestacion = form.cleaned_data['prestacion']
         turno = form.cleaned_data['turno']
         user = self.request.user
         obj, created = Prestaciones.objects.get_or_create(
             nombre = nombre,
             user = user,
-            num_dias = num_dias,
+            prestacion = prestacion,
             turno = turno
         )
         return super(PrestacionesCreateview, self).form_valid(form)
