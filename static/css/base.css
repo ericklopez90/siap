@@ -38,6 +38,12 @@
     width: 100%;
 }
 
+.chart-pie4 {
+    position: relative;
+    height: 15rem;
+    width: 100%;
+}
+
 .padding{
     padding: .75rem 3.25rem -1.00rem 1.25rem;
 }
@@ -49,4 +55,9 @@
     color: #7D9AD4;
     border-width: 0px;
     border-style: outset;
+}
+
+.centrarCaja {
+    position:relative;
+    left:40%;
 }

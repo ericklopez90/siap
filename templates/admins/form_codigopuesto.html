@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% load static%}
-{% block title %}Universo{% endblock title %}
+{% block title %}Codigo de Puesto{% endblock title %}
 
 {% block content %}
 <div class="row mt-5">
-  <a href="{% url 'admins_app:universo' %}" class="btn btn-dark mt-1" role="button">
+  <a href="{% url 'admins_app:codigop' %}" class="btn btn-dark mt-1" role="button">
     <i class="fas fa-chevron-left"></i></a>
   <div class="col-sm-4 offset-sm-4"></div>
 </div>
@@ -12,10 +12,10 @@
   <div class="col-sm-4 offset-sm-4">
     <div class="card shadow mb-4">
       <div class="py-3 d-flex flex-row align-items-center justify-content-center">
-        {% if universo %}
-        <h6 class="m-0 font-weight-bold text-primary">Actualizar Universo</h6>
+        {% if codigopuesto %}
+        <h6 class="m-0 font-weight-bold text-primary">Actualizar Codigo de Puesto</h6>
         {% else %}
-        <h6 class="m-0 font-weight-bold text-primary">Registrar Nuevo Universo</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Registrar Nuevo Codigo de Puesto</h6>
         {% endif %}
       </div>
       <div class="card-body">
@@ -32,7 +32,7 @@
               {{form.activo}}
             </div>
             <div>
-              {% if universo %}
+              {% if codigopuesto %}
               <button type="submit" class="btn btn-secondary btn-lg btn-block">Actualizar</button>
               {% else %}
               <button type="submit" class="btn btn-secondary btn-lg btn-block">Crear</button>

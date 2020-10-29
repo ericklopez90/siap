@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block title %}Catalogo{% endblock title %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-12">
+        <h3 class="my-3 font-weight-bold text-center text-secondary">Catalogo</h3>
+        <div class="card shadow mb-4 p-5">
+            <div class="row px-3">
+                <div class="col-sm-4">
+                    <a href="{% url 'admins_app:dias' %}" class="btn btn-dark btn-block   m-3 py-2" role="button">Dia Laboral</a>
+                </div>
+                <div class="col-sm-4">
+                    <a href="{% url 'admins_app:codigop' %}" class="btn btn-dark btn-block  m-3 py-2" role="button">Codigo de Puesto</a>
+                </div>
+                <div class="col-sm-4">
+                    <a href="{% url 'admins_app:nivels' %}" class="btn btn-dark btn-block  m-3 py-2" role="button">Nivel Salarial</a>
+                </div>
+            </div>
+            <div class="row px-3">
+                <div class="col-sm-4">
+                    <a href="{% url 'admins_app:seccions' %}" class="btn btn-dark btn-block   m-3 py-2" role="button">Sección Sindical</a>
+                </div>
+                <div class="col-sm-4">
+                    <a href="{% url 'admins_app:universo' %}" class="btn btn-dark btn-block  m-3 py-2" role="button">Universo</a>
+                </div>
+                <div class="col-sm-4">
+                    <a href="{% url 'admins_app:zonap' %}" class="btn btn-dark btn-block  m-3 py-2" role="button">Zona Pagadora</a>
+                </div>
+            </div>
+            <div class="row px-3">
+                <div class="col-sm-4">
+                    <a href="{% url 'admins_app:tipoc' %}" class="btn btn-dark btn-block   m-3 py-2" role="button">Tipo de Contratación</a>
+                </div>
+                <div class="col-sm-4">
+                    <a href="{% url 'admins_app:turno' %}" class="btn btn-dark btn-block  m-3 py-2" role="button">Turno</a>
+                </div>
+                <div class="col-sm-4">
+                    <a href="{% url 'admins_app:prestaciones' %}" class="btn btn-dark btn-block  m-3 py-2" role="button">Prestación</a>
+                </div>
+            </div>
+            <div class="row px-3">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <a href="{% url 'admins_app:hospital' %}" class="btn btn-dark btn-block  m-3 py-2" role="button">Hospital</a>
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 {% load static%}
-{% block title %}Universo{% endblock title %}
+{% block title %}Dias Laborales{% endblock title %}
 
 {% block content %}
 
 <div class="row">
     <div class="col-12">
-        <h3 class="my-3 font-weight-bold text-center text-secondary">Universo</h3>
+        <a href="{% url 'admins_app:catalogo' %}" class="btn btn-dark mt-1" role="button">
+            <i class="fas fa-chevron-left"></i></a>
+        <h3 class="my-3 font-weight-bold text-center text-secondary">Dias Laborales</h3>
         <div class="card shadow mb-4 p-3">
             <div class="row px-3">
                 <div class="col-12">
@@ -25,12 +27,40 @@
                     <a href="?order=user" class="btn btn-secondary btn-block btn-sm mt-1" role="button">Usuario</a>
                 </div>
                 <div class="col-sm-3">
-                    <a href="{% url 'admins_app:uninuevo' %}" class="btn btn-success float-right mt-1" role="button">
+                    <a href="{% url 'admins_app:diasnuevo' %}" class="btn btn-success float-right mt-1" role="button">
                         <i class="fas fa-plus"></i>
                     </a>
                 </div>
             </div>
-           
+            <div class="py-2 px-3 mt-3">
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <thead class="thead-dark">
+                            <tr class="text-center">
+                                <th>Nombre</th>
+                                <th>Ultima Modificación</th>
+                                <th>Modificado por</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for d in dias %}
+                            <tr class="text-center">
+                                <td>{{d.nombre}}</td>
+                                <td>{{d.modified}}</td>
+                                <td>{{d.user}}</td>
+                                <td>
+                                    <a href="{% url 'admins_app:dias-update' d.id %}" class="btn btn-dark btn-sm m-2"
+                                        role="button">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             <div class="row">
                 <div class="mx-auto ">
                     {% if is_paginated %}

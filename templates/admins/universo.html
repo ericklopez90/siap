@@ -1,37 +1,60 @@
 {% extends 'base.html' %}
 {% load static%}
-{% block title %}Busqueda del Personal{% endblock title %}
+{% block title %}Universo{% endblock title %}
 
 {% block content %}
 
 <div class="row">
-    <!-- Pie Chart -->
-    <div class="col-xl-12 col-lg-12">
-        <div class="card shadow mb-4">
-            <!-- Card Header - Dropdown -->
-            <div class="card-collapse py-3 d-flex flex-row align-items-center justify-content-center">
-                <h6 class="m-0 font-weight-bold text-primary">Universo</h6>
-            </div>
-            <!-- Card Body -->
-            <div class="card-body">
-                <div class="cell small-3">
-                    <a href="{% url 'admins_app:uninuevo' %}" class="button success">Registrar Nuevo</a>
+    <div class="col-12">
+        <a href="{% url 'admins_app:catalogo' %}" class="btn btn-dark mt-1" role="button">
+            <i class="fas fa-chevron-left"></i></a>
+        <h3 class="my-3 font-weight-bold text-center text-secondary">Universo</h3>
+        <div class="card shadow mb-4 p-3">
+            <div class="row px-3">
+                <div class="col-12">
+                    <label for="">Filtra por</label>
                 </div>
-                <div class="py-3">
-                    <table class="table">
-                        <thead>
-                            <th>Nombre</th>
-                            <th>Creado</th>
-                            <th>Modificado</th>
-                            <th>Modificado por</th>
+            </div>
+            <div class="row px-3">
+                <div class="col-sm-3">
+                    <a href="?order=nombre" class="btn btn-secondary btn-block btn-sm  mt-1" role="button">Nombre</a>
+                </div>
+                <div class="col-sm-3">
+                    <a href="?order=modified" class="btn btn-secondary btn-block btn-sm mt-1" role="button">Fecha de
+                        Modificación</a>
+                </div>
+                <div class="col-sm-3">
+                    <a href="?order=user" class="btn btn-secondary btn-block btn-sm mt-1" role="button">Usuario</a>
+                </div>
+                <div class="col-sm-3">
+                    <a href="{% url 'admins_app:uninuevo' %}" class="btn btn-success float-right mt-1" role="button">
+                        <i class="fas fa-plus"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="py-2 px-3 mt-3">
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <thead class="thead-dark">
+                            <tr class="text-center">
+                                <th>Nombre</th>
+                                <th>Ultima Modificación</th>
+                                <th>Modificado por</th>
+                                <th>Acción</th>
+                            </tr>
                         </thead>
                         <tbody>
                             {% for u in universo %}
-                            <tr>
+                            <tr class="text-center">
                                 <td>{{u.nombre}}</td>
-                                <td>{{u.created}}</td>
                                 <td>{{u.modified}}</td>
                                 <td>{{u.user}}</td>
+                                <td>
+                                    <a href="{% url 'admins_app:uni-update' u.id %}" class="btn btn-dark btn-sm m-2"
+                                        role="button">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                </td>
                             </tr>
                             {% endfor %}
                         </tbody>
@@ -41,10 +64,10 @@
             <div class="row">
                 <div class="mx-auto ">
                     {% if is_paginated %}
-                    <ul class="pagination">
+                    <ul class="pagination pagination-sm">
                         {% if page_obj.has_previous %}
                         <li class="page-item"><a class="page-link"
-                                href="?page={{page_obj.previous_page_number}}">Previous</a>
+                                href="?page={{page_obj.previous_page_number}}">Atras</a>
                         </li>
                         {% endif %}
                         {% for pagina in paginator.page_range %}
@@ -56,7 +79,8 @@
                         {% endifequal %}
                         {% endfor %}
                         {% if page_obj.has_next %}
-                        <li class="page-item"><a class="page-link" href="?page={{page_obj.next_page_number}}">Next</a>
+                        <li class="page-item"><a class="page-link"
+                                href="?page={{page_obj.next_page_number}}">Siguiente</a>
                         </li>
                         {% endif %}
                     </ul>
