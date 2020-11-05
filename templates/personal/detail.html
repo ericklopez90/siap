@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block title %}Detalle del Personal{% endblock title %}
+
+{% block content %}
+
+<div class="row mt-2">
+  <div class="col-sm-12">
+    <div class="card shadow mb-4">
+      <div class="card-body">
+        <div class="row mb-3">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label class="text-8 m-0">Nombre</label>
+              <input type="text" class="form-control form-control-sm" disabled value="{{personal.nombre}}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label class="text-8 m-0">Apellido paterno</label>
+              <input type="text" class="form-control form-control-sm" disabled value="{{personal.apellido_paterno}}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label class="text-8 m-0">Apellido materno</label>
+              <input type="text" class="form-control form-control-sm" disabled value="{{personal.apellido_materno}}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label class="text-8 m-0">Fecha de nacimiento</label>
+              <input type="text" class="form-control form-control-sm" disabled value="{{personal.fecha_nac}}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label class="text-8 m-0">C.U.R.P.</label>
+              <input type="text" class="form-control form-control-sm" disabled value="{{personal.curp}}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label class="text-8 m-0">R.F.C.</label>
+              <input type="text" class="form-control form-control-sm" disabled value="{{personal.rfc}}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label class="text-8 m-0">N° de empleado</label>
+              <input type="text" class="form-control form-control-sm" disabled value="{{personal.num_empleado}}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label class="text-8 m-0">N° de plaza</label>
+              <input type="text" class="form-control form-control-sm" disabled value="{{personal.num_plaza}}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label class="text-8 m-0">Fecha de ingreso</label>
+              <input type="text" class="form-control form-control-sm" disabled value="{{personal.fecha_ingreso}}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label class="text-8 m-0">Universo</label>
+              <input type="text" class="form-control form-control-sm" disabled value="{{personal.universo}}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label class="text-8 m-0">Nivel salarial</label>
+              <input type="text" class="form-control form-control-sm" disabled value="{{personal.nivel}}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label class="text-8 m-0">Zona Pagadora</label>
+              <input type="text" class="form-control form-control-sm" disabled value="{{personal.zona_pagadora}}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label class="text-8 m-0">Codigo de puesto</label>
+              <input type="text" class="form-control form-control-sm" disabled value="{{personal.codigo_puesto}}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label class="text-8 m-0">Sección sindical</label>
+              <input type="text" class="form-control form-control-sm" disabled value="{{personal.secc_sindical}}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label class="text-8 m-0">Hospital</label>
+              <input type="text" class="form-control form-control-sm" disabled value="{{personal.hospital}}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label class="text-8 m-0">Turno</label>
+              <input type="text" class="form-control form-control-sm" disabled value="{{personal.turno}}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label class="text-8 m-0">Prestaciones</label>
+              <input type="text" class="form-control form-control-sm" disabled value="{{personal.prestaciones}}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label class="text-8 m-0">Tipo de Contratación</label>
+              <input type="text" class="form-control form-control-sm" disabled value="{{personal.tipo_contratacion}}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label class="text-8 m-0">Activo</label>
+              <input type="text" class="form-control form-control-sm" disabled value="{{personal.activo}}">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

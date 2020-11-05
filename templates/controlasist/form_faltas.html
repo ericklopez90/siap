@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block title %}Registrar Falta{% endblock title %}
+
+{% block content %}
+<div class="row mt-5">
+  <div class="col-sm-6 offset-sm-3">
+    <div class="card shadow mb-4">
+      <div class="py-3 d-flex flex-row align-items-center justify-content-center">
+        <h6 class="m-0 font-weight-bold text-primary">Registrar Falta</h6>
+      </div>
+      <div class="card-body">
+        <div class="chart-pie3  align-items-center justify-content-center">
+          <div class="row">
+            <div class="col-sm-6">
+              {{personal.num_empleado}}
+            </div>
+            <div class="col-sm-6">
+              {{personal.num_plaza}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              {{personal.apellido_paterno}}
+            </div>
+            <div class="col-sm-4">
+              {{personal.apellido_materno}}
+            </div>
+            <div class="col-sm-4">
+              {{personal.nombre}}
+            </div>
+          </div>
+          <form method="POST">{% csrf_token %}
+            <div class="form-group" id='nombre'>
+              {{form.fecha}}
+            </div>
+            <div class="form-group">
+              <label for="">Falta</label>
+              {{form.falta}}
+            </div>
+            <div class="form-group">
+              {{form.personal}}
+            </div>
+            <div>
+              <button type="submit" class="btn btn-secondary btn-lg btn-block">Agregar Falta</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

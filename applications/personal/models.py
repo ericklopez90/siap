@@ -37,5 +37,5 @@ class Personal(TimeStampedModel):
         unique_together = ['num_empleado']
 
     def __str__(self):
-        return str(self.num_plaza) + ' - ' + self.nombre + ' ' + self.apellido_paterno + ' ' + self.apellido_materno
+        return str(self.num_empleado) + ' - ' + self.nombre + ' ' + self.apellido_paterno + ' ' + self.apellido_materno
      

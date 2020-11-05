@@ -3,13 +3,13 @@ from datetime import timedelta
 # django
 from django.db import models
 from django.utils import timezone
-from django.db.models import Q, F, Count
+from django.db.models import Q, F
 
 
-class PersonalManager(models.Manager):
+class FaltasManager(models.Manager):
     """ procedimiento modelo product """
 
-    def buscar_personal(self, kword, order):
+    def buscar_faltas(self, kword, order):
         consulta = self.filter(
             Q (nombre__icontains=kword) | 
             Q (apellido_paterno__icontains=kword) | 
@@ -29,14 +29,7 @@ class PersonalManager(models.Manager):
         else:
             return consulta.order_by('created')
 
-    def buscar_faltasporpersonal(self):
-        resultado = self.aggregate(
-            num_faltas=Count('personal_faltas')
-        )
-        return resultado['num_faltas']
-
-    def buscar_faltasporpersonall(self):
-        resultado = self.aggregate(
-            num_faltas=Count('personal_faltas__id')
-        )
-        return resultado['num_faltas']
+    def buscar_faltaspersonal(self, pk):
+        return self.filter(
+            personal__id=pk
+        ).order_by('-created')

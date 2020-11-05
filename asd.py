@@ -20,4 +20,10 @@ print(len(v))
 ?page=
 
 
-           "{% url 'personal_app:personal-detail' p.id %}"
+           "{% url 'personal_app:personal-detail' p.id %}
+import requests
+
+data=requests.get('https://randomuser.me/api/')
+for d in data:
+    print(d)
+

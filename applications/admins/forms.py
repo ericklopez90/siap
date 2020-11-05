@@ -180,6 +180,12 @@ class TurnoForm(forms.ModelForm):
                 'placeholder': 'Nombre',
                 'class': 'form-control'
             }
+        ),
+        'dia_trab': forms.SelectMultiple(
+            attrs={
+                'placeholder': 'Dia Laboral',
+                'class': 'form-control'
+            }
         )
     }   
 
@@ -219,6 +225,18 @@ class PrestacionesForm(forms.ModelForm):
         )
         widgets = {
         'nombre': forms.TextInput(
+            attrs={
+                'placeholder': 'Nombre',
+                'class': 'form-control'
+            }
+        ),
+        'prestacion': forms.SelectMultiple(
+            attrs={
+                'placeholder': 'Prestaciones',
+                'class': 'form-control'
+            }
+        ),
+        'turno': forms.Select(
             attrs={
                 'placeholder': 'Nombre',
                 'class': 'form-control'

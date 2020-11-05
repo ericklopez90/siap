@@ -6,12 +6,14 @@ from django.views.generic import (
     UpdateView,
     DeleteView,
     ListView,
-    TemplateView
+    TemplateView,
+    DetailView
 )
 from django.views.generic.edit import (
     FormView
 )
-
+from applications.controlasist.models import Faltas
+from applications.controlasist.managers import *
 from .models import Personal
 from .forms import PersonalForm
 # Create your views here.
@@ -29,14 +31,10 @@ class BusquedaPersonalListView(ListView):
         return queryset
 
 
-class PersonalDetailView(TemplateView):
+class PersonalDetailView(DetailView):
     template_name = 'personal/detail.html'
-    
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['faltas'] = faltas_por_personal
-        context['personal'] = Personal.objects.all()
-        return context
+    model = Personal
+
 
 
 class PersonalListView(ListView):

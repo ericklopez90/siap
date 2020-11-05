@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static%}
-{% block title %}Universo{% endblock title %}
+{% block title %}Busqueda del Personal{% endblock title %}
 
 {% block content %}
 
@@ -28,15 +28,37 @@
         </div>
         <div class="row">
             {% for p in personal %}
-            <div class="col-sm-4">
-                <div class="card" style="width: 18rem;">
+            <div class="col-sm-4 py-3">
+                <div class=" card shadow">
                     <div class="card-body">
-                        <h5 class="card-title">{{p.apellido_paterno}} {{p.apellido_materno}}</h5>
-                      <h5 class="card-title">{{p.nombre}}</h5>
-                        <h4>{{p.num_empleado}} </h4>
-                        <h4>{{p.num_plaza}}</h4>
-                        <h4>{{p.hospital}}</h4>
-                        <a href="#" class="card-link">Entrar</a>
+                        <h5 class="card-title text-center mb-4">{{p.apellido_paterno}} {{p.apellido_materno}} {{p.nombre}}
+                        </h5>
+                        <div class="row">
+                            <div class="col-6">
+                                <h6 class="text-left text-9 font-weight-bold">N° de Empleado</h6>
+                            </div>
+                            <div class="col-6">
+                                <h6 class="text-right text-9 font-weight-bold">N° de Plaza</h6>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col-6">
+                                <h6 class="text-left text-8">{{p.num_empleado}}</h6>
+                            </div>
+                            <div class="col-6">
+                                <h6 class="text-right text-8">{{p.num_plaza}}</h6>
+                            </div>
+                        </div>
+
+                        <h6 class="text-center mt-2">{{p.hospital}}</h6>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-12   ">
+                                <a href="{% url 'personal_app:personal-detail' p.id %}"
+                                    class="btn btn-block btn-secondary btn-sm">Entrar</a>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block title %}Prestacion{% endblock title %}
+
+{% block content %}
+
+{% for p in personal %}
+  <li>{{p}}</li>
+{% endfor %}
+
+{% for r in resultado %}
+  <li>{{r}}</li>
+{% endfor %}
+
+{{personal}}
+{{personal.faltas}}
+
+{{p}}
+{{faltas}}
+{{faltass}}
+
+<ul><li>{{faltas.num_faltas}}</li>  </ul>
+
+
+{% endblock %}
